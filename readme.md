@@ -29,9 +29,7 @@ Este é um aplicativo Node.js para a geração e gerenciamento automatizado de b
             "replication": true,
             "url": "http://localhost/backup-server/"
         },
-        "port": 3000,
-        "apiKey": "sua-api-key",
-        "dataRetention": 30,
+        "retention": 30,
         "cron": "0 0 12 * * *",
         "connections": {
             "mysql": {
@@ -52,10 +50,8 @@ Este é um aplicativo Node.js para a geração e gerenciamento automatizado de b
     - `upload`: Configurações utilizada pelo sistema de Replicação.
         - `replication`: Ativar ou Desativar Replicação `true/false`.
         - `url`: Url do serve para upload.
-    - `port`: A porta na qual o servidor irá escutar. Por exemplo, `3000`.
-    - `apiKey`: Uma chave API para autenticação de requisições ao endpoint de backups. Substitua 
     - `sua-api-key` por uma chave segura.
-    - `dataRetention`: O número de dias para manter os backups antes de excluí-los. Por exemplo, `30` dias.
+    - `retention`: O número de dias para manter os backups antes de excluí-los. Por exemplo, `30` dias.
     - `cron`: Expressão cron para agendar os backups, exemplo `0 0 12 * * *`.
         ```md
         ┌────────────── segundo (0 - 59)

@@ -40,7 +40,7 @@ try{
                 }
 
                 const thirtyDaysAgo = new Date();
-                thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - config.dataRetention);
+                thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - config.retention);
 
                 fs.readdirSync(pathDB).forEach((file) => {
                     const filePath = dir.join(pathDB, file);

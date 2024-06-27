@@ -5,13 +5,12 @@ Este é um aplicativo Node.js para a geração e gerenciamento automatizado de b
 ## Funcionalidades
 
 - Geração automática de backups de bancos de dados MySQL.
-- Retenção de backups por um período configurável.
-- Endpoint para listar backups disponíveis.
-- Autenticação por chave API para acesso seguro ao endpoint.
+- Retenção de backups local por um período configurável.
+- Redundância de dados por servidor externo.
 
 ## Pré-requisitos
 
-- Node.js instalado na máquina.
+- [`Node.js`](https://nodejs.org/en/download/prebuilt-installer) instalado na máquina.
 
 ## Instalação
 
@@ -26,6 +25,10 @@ Este é um aplicativo Node.js para a geração e gerenciamento automatizado de b
 
     ```json
     {
+        "upload":{
+            "replication": true,
+            "url": "http://localhost/backup-server/"
+        },
         "port": 3000,
         "apiKey": "sua-api-key",
         "dataRetention": 30,
@@ -46,6 +49,9 @@ Este é um aplicativo Node.js para a geração e gerenciamento automatizado de b
     ```
     ### Explicação dos campos do `config.json`:
 
+    - `upload`: Configurações utilizada pelo sistema de Replicação.
+        - `replication`: Ativar ou Desativar Replicação `true/false`.
+        - `url`: Url do serve para upload.
     - `port`: A porta na qual o servidor irá escutar. Por exemplo, `3000`.
     - `apiKey`: Uma chave API para autenticação de requisições ao endpoint de backups. Substitua 
     - `sua-api-key` por uma chave segura.
@@ -70,17 +76,15 @@ Este é um aplicativo Node.js para a geração e gerenciamento automatizado de b
             - `nome_database`: O nome do banco de dados.
             - `tabela`: A tabela dentro do banco de dados que será alvo dos backups.
 
+3. Instalando Servidor de Replicação `opicional`:
+    ## Pré-requisitos
+    - Servidor [`Apache`](https://httpd.apache.org/download.cgi#apache24) ou [`xamp`](https://www.apachefriends.org/pt_br/index.html) instalado na maquina de replicação
+    - copiar a pasta `backup-server` para:
+        - apache: `www/html`
+        - xamp: `xamp/htdocs`
 ## Uso
 
 ### Iniciando a Aplicação
 
 - `windows`: Execute o `start.bat`
 - `linux`: Navegue até a pasta do repositório execute `npm start`, Caso não tenha instalado as dependências ainda execute `npm i`
-
-## Acessando endpoint
-
-```sh
-curl -H "x-api-key: sua-api-key" http://localhost:3000/backups
-```
-
-- Será retornado a lista com os backups existentes ordenado por data e hora

@@ -1,4 +1,8 @@
 {
+    "upload":{
+        "replication": true,
+        "url": "http://localhost/backup-server/"
+    },
     "dataRetention": 30,
     "cron": "0 0 12 * * *",
     "connections": {

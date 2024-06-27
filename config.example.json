@@ -1,6 +1,4 @@
 {
-    "port": 3000,
-    "apiKey": "sua-api-key",
     "dataRetention": 30,
     "cron": "0 0 12 * * *",
     "connections": {

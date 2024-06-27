@@ -12,9 +12,6 @@
   "license": "ISC",
   "dependencies": {
     "@types/node": "^18.7.17",
-    "body-parser": "^1.20.2",
-    "cors": "^2.8.5",
-    "express": "^4.19.2",
     "mysqldump": "^3.2.0",
     "node-cron": "^3.0.2"
   }

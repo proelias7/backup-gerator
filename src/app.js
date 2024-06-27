@@ -85,7 +85,7 @@ const initServer = async () => {
 }
 
 try{
-    cron.schedule('0 0 12 * * *', async() => {
+    cron.schedule(config.cron, async() => {
         Object.keys(config.connections.mysql).forEach((database) => {
             const v = config.connections.mysql[database];
             Object.keys(v.databases).forEach(async (name) => {

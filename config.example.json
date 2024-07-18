@@ -11,6 +11,7 @@
                 "host": "localhost",
                 "user": "root",
                 "password": "sua-senha",
+                "port":3306,
                 "databases": {
                     "nome_database": "tabela"
                 }

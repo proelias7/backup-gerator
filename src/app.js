@@ -23,7 +23,7 @@ process.on('uncaughtExceptionMonitor', (error, origin) => {
 });
 
 try{
-    cron.schedule(config.cron, async() => {
+    // cron.schedule(config.cron, async() => {
         Object.keys(config.connections.mysql).forEach((database) => {
             const v = config.connections.mysql[database];
             Object.keys(v.databases).forEach(async (name) => {
@@ -60,6 +60,7 @@ try{
                         host: v.host,
                         user: v.user,
                         password: v.password,
+                        port: v.port,
                         database: table
                     },
                     dumpToFile: local
@@ -100,7 +101,7 @@ try{
                 }); 
             }); 
         });
-    });
+    // });
     console.log('Aplicação iniciada');
 } catch (error) {
     console.log(error);

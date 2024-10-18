@@ -1,9 +1,6 @@
 {
-    "upload":{
-        "replication": true,
-        "url": "http://localhost/backup-server/"
-    },
-    "retention": 30,
+    "webhook":"http://localhost/backup-server/",
+    "retention": 0,
     "cron": "0 0 12 * * *",
     "connections": {
         "mysql": {

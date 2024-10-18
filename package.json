@@ -1,20 +1,25 @@
 {
-  "name": "backups-gerator",
-  "version": "1.0",
-  "description": "Aplicação de backup de bases de dados.",
-  "exports": "./src/app.js",
-  "type": "module",
-  "scripts": {
-    "start": "node src/app.js"
-  },
-  "keywords": [],
-  "author": "Proelias7",
-  "license": "ISC",
-  "dependencies": {
-    "@types/node": "^18.7.17",
-    "form-data": "^4.0.0",
-    "mysqldump": "^3.2.0",
-    "node-cron": "^3.0.2",
-    "node-fetch": "^3.3.2"
-  }
+    "name": "backups-gerator",
+    "version": "1.1",
+    "description": "Aplicação de backup de bases de dados.",
+    "exports": "./src/app.js",
+    "type": "module",
+    "keywords": [],
+    "author": "Proelias7",
+    "license": "ISC",
+    "dependencies": {
+        "@types/node": "^18.7.17",
+        "archiver": "^7.0.1",
+        "axios": "^1.7.7",
+        "form-data": "^4.0.0",
+        "mysqldump": "^3.2.0",
+        "node-cron": "^3.0.2"
+    },
+    "scripts": {
+        "start": "cross-env NODE_ENV=production node src/app.js",
+        "dev": "cross-env NODE_ENV=development node src/app.js"
+    },
+    "devDependencies": {
+        "cross-env": "^7.0.3"
+    }
 }

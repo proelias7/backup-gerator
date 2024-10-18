@@ -1,3 +1,6 @@
+[![Version](https://img.shields.io/badge/version-1.1-blue.svg)](https://github.com/proelias7/backup-gerator/releases)
+
+
 # Backup Generator
 
 Este é um aplicativo Node.js para a geração e gerenciamento automatizado de backups de bancos de dados. Ele cria backups e mantém a retenção dos dados conforme configurado no arquivo `config.json`.
@@ -25,10 +28,7 @@ Este é um aplicativo Node.js para a geração e gerenciamento automatizado de b
 
     ```json
     {
-        "upload":{
-            "replication": true,
-            "url": "http://localhost/backup-server/"
-        },
+        "webhook":"http://localhost/backup-server/",
         "retention": 30,
         "cron": "0 0 12 * * *",
         "connections": {
@@ -47,11 +47,8 @@ Este é um aplicativo Node.js para a geração e gerenciamento automatizado de b
     ```
     ### Explicação dos campos do `config.json`:
 
-    - `upload`: Configurações utilizada pelo sistema de Replicação.
-        - `replication`: Ativar ou Desativar Replicação `true/false`.
-        - `url`: Url do serve para upload.
-    - `sua-api-key` por uma chave segura.
-    - `retention`: O número de dias para manter os backups antes de excluí-los. Por exemplo, `30` dias.
+    - `webhook`: webhook para enviar os backups para o servidor de replicação.
+    - `retention`: O número de dias para manter os backups antes de excluí-los. `0` manterá somente o backup mais recente.
     - `cron`: Expressão cron para agendar os backups, exemplo `0 0 12 * * *`.
         ```md
         ┌────────────── segundo (0 - 59)
